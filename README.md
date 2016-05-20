@@ -8,8 +8,10 @@ Integrantes:
 
 ### No linux:
 
-Para compilar o código, utilize o seguinte comando: \
+Para compilar o código, utilize o seguinte comando:
+
 ` gcc -ansi src/main.c `
 
-Para executar o código, utilize o seguinte comando: \
+Para executar o código, utilize o seguinte comando:
+
 ` ./a.out `
