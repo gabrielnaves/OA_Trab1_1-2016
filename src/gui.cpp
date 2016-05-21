@@ -23,14 +23,18 @@ void gui::ShowMainMenu() {
 }
 
 void gui::CreateNewIndexFile() {
-    PrintLine("Digite o nome do arquivo de indices");
-    string index_fname = ReadLine();
-    index_fname = "indices/" + index_fname; // Para
-
     PrintLine("Digite o nome do arquivo de dados");
     string data_fname = ReadLine();
-    data_fname = "listas/" + data_fname; // Para
+    data_fname = "listas/" + data_fname;
+
+    PrintLine("Digite o nome do arquivo de indices primario");
+    string index_fname = ReadLine();
+    index_fname = "indices/" + index_fname;
+
+    PrintLine("Digite o nome do arquivo de indices secundario");
+    string secondary_fname = ReadLine();
+    secondary_fname = "indices/" + secondary_fname;
 
     cout << endl;
-    CreateIndex(index_fname, data_fname);
+    CreateIndex(index_fname, data_fname, secondary_fname);
 }

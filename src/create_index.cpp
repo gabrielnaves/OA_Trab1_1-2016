@@ -3,7 +3,7 @@
 using namespace std;
 using namespace io;
 
-void CreateIndex(string index_fname, string data_fname) {
+void CreateIndex(string index_fname, string data_fname, string secondary_index_fname) {
     /* Abre o arquivo de dados */
     ifstream data_file(data_fname.c_str());
     if (!data_file) {
@@ -27,6 +27,8 @@ void CreateIndex(string index_fname, string data_fname) {
 
     /* Salva o indice num arquivo (sem informacao do indice secundario) */
     SaveIndex(index_fname, index);
+
+    CreateSecondaryIndex(index_fname, data_fname, secondary_index_fname);
 }
 
 void CreateSecondaryIndex(string index_fname, string data_fname, string secondary_index_fname) {

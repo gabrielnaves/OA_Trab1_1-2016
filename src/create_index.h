@@ -14,7 +14,7 @@
 typedef std::pair<std::string, std::pair<int, int> > IndexReg;
 typedef std::vector<IndexReg> Index;
 
-void CreateIndex(std::string index_fname, std::string data_fname);
+void CreateIndex(std::string index_fname, std::string data_fname, std::string secondary_index_fname);
 void CreateSecondaryIndex(std::string index_fname, std::string data_fname, std::string secondary_index_fname);
 
 Index LoadIndex(std::string index_fname);
