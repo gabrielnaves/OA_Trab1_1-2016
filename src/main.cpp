@@ -4,8 +4,9 @@
 
 #include "gui.h"
 
-int main(int argv, char *argc[]) {
-    while (true)
-        gui::RunMainMenu();
+int main(int argc, char *argv[]) {
+    bool should_quit = false;
+    while (!should_quit)
+        should_quit = gui::RunMainMenu();
     return 0;
 }
