@@ -6,6 +6,6 @@
 
 int main(int argv, char *argc[]) {
     while (true)
-        GUI_RunMainMenu();
+        gui::RunMainMenu();
     return 0;
 }

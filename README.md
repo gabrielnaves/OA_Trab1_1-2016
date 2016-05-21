@@ -10,7 +10,7 @@ Integrantes:
 
 Para compilar o código, utilize o seguinte comando:
 
-` gcc -ansi src/main.c `
+` g++ src/*.cpp `
 
 Para executar o código, utilize o seguinte comando:
 
