@@ -7,6 +7,7 @@
 #include <iomanip>
 
 #include "io_operations.h"
+#include "heapsort.h"
 
 void CreateIndex(std::string index_fname, std::string data_fname);
 
