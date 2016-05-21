@@ -6,9 +6,13 @@
 #include <vector>
 #include <iostream>
 
-template<typename T, typename U>
 class Search {
   public:
+    /**
+     * Exemplo de uso: `Search::BinarySearch<int>(Vetor, Objeto)`
+     * Onde "Vetor" é um `std::vector<int>` e "Objeto" é do tipo `int`
+     */
+    template<typename T>
     static int BinarySearch(const std::vector<T>& vet, T obj) {
         int vetsize = vet.size();
         int i = 0, j = vetsize - 1;
@@ -24,8 +28,13 @@ class Search {
         return -1;
     }
 
-    // Para buscas em vector<pair<a, b> >, onde apenas 'a' deve ser levado em consideracao
-    static int BinarySearchP(const std::vector<std::pair<T, U> >& vet, T obj) {
+    /**
+     * Para buscas em vector<pair<a, b> >, onde apenas 'a' deve ser levado em consideracao
+     * Exemplo de uso: `Search::BinarySearch<int, float>(Vetor, Objeto);`
+     * Onde "Vetor" é um `std::vector<std::pair<int, float> > ` e "Objeto" é do tipo `int`
+     */
+    template<typename T, typename U>
+    static int BinarySearch(const std::vector<std::pair<T, U> >& vet, T obj) {
         int vetsize = vet.size();
         int i = 0, j = vetsize - 1;
         while (i <= j) {

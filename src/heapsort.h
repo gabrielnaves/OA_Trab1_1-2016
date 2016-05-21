@@ -6,9 +6,14 @@
 #include <vector>
 #include <iostream>
 
-template<typename T>
 class Sort {
   public:
+    /**
+     * Ordena vetores de qualquer tipo (desde que o tipo suporte os operadores `<` e `>`)
+     * Exemplo de uso: `Sort::Heapsort<int>(Vetor);`
+     * Onde "Vetor" é um `std::vector<int>`
+     */
+    template<typename T>
     static void Heapsort(std::vector<T>& index) {
         int vetsize = index.size();
         BuildHeap(index);
@@ -21,11 +26,13 @@ class Sort {
     }
 
   private:
+    template<typename T>
     static void BuildHeap(std::vector<T>& index) {
         for (int p = index.size()-1; p >= 0; p--)
         Heapify(index, p, index.size());
     }
 
+    template<typename T>
     static void Heapify(std::vector<T>& index, const int pos, const int vetsize) {
         int l = left(pos, vetsize);
         int r = right(pos, vetsize);
@@ -39,6 +46,7 @@ class Sort {
         }
     }
 
+    template<typename T>
     static void Swap(std::vector<T>& index, const int a, const int b) {
         T tmp = index[a];
         index[a] = index[b];

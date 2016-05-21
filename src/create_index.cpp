@@ -23,7 +23,7 @@ void CreateIndex(string index_fname, string data_fname, string secondary_index_f
     }
 
     /* Ordena o indice com heapsort */
-    Sort<IndexReg>::Heapsort(index);
+    Sort::Heapsort<IndexReg>(index);
 
     /* Salva o indice num arquivo (sem informacao do indice secundario) */
     SaveIndex(index_fname, index);
@@ -48,16 +48,16 @@ void CreateSecondaryIndex(string index_fname, string data_fname, string secondar
         intermediate.push_back(make_pair(secondary_key, primary_key));
     }
 
-    Sort<pair<string, string> >::Heapsort(intermediate);
+    Sort::Heapsort<pair<string, string> >(intermediate);
 
     /* Constroi o indice secundario a partir do intermediario, e guarda os ponteiros no indice primario */
     vector<pair<string, int> > secondary_index;
     // Processa o primeiro
-    int last_ind = Search<string, pair<int, int> >::BinarySearchP(index, intermediate[0].second);
+    int last_ind = Search::BinarySearch<string, pair<int, int> >(index, intermediate[0].second);
     secondary_index.push_back(make_pair(intermediate[0].first, last_ind));
     // Processa o restante
     for (int i = 1; i < intermediate.size(); ++i) {
-        int new_ind = Search<string, pair<int, int> >::BinarySearchP(index, intermediate[i].second);
+        int new_ind = Search::BinarySearch<string, pair<int, int> >(index, intermediate[i].second);
         if (intermediate[i].first != secondary_index[secondary_index.size()-1].first)
             secondary_index.push_back(make_pair(intermediate[i].first, new_ind));
         else
