@@ -23,7 +23,7 @@ void CreateIndex(std::string index_fname, std::string data_fname) {
     }
 
     /* Ordena o indice com heapsort */
-    sort::Heapsort(index);
+    Sort<pair<string,int> >::Heapsort(index);
 
     /* Salva o indice num arquivo */
     ofstream index_file(index_fname.c_str());
