@@ -31,5 +31,6 @@ void gui::CreateNewIndexFile() {
     string data_fname = ReadLine();
     data_fname = "listas/" + data_fname; // Para
 
+    cout << endl;
     CreateIndex(index_fname, data_fname);
 }

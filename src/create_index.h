@@ -2,6 +2,7 @@
 #define CREATE_INDEX_H
 
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <vector>
 #include <iomanip>

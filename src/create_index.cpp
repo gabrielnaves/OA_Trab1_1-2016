@@ -27,8 +27,13 @@ void CreateIndex(std::string index_fname, std::string data_fname) {
 
     /* Salva o indice num arquivo */
     ofstream index_file(index_fname.c_str());
-    for (int i = 0; i < index.size(); ++i)
-        index_file << index[i].first << " " << setfill('0') << setw(2) << index[i].second << endl;
+    PrintLine("Arquivo de indice primario criado: ");
+    for (int i = 0; i < index.size(); ++i) {
+        stringstream stream;
+        stream << index[i].first << " " << setfill('0') << setw(2) << index[i].second;
+        PrintLine(stream.str());
+        index_file << stream.str() << endl;
+    }
 }
 
 string RemoveSpaces(string str) {
