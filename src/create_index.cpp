@@ -2,6 +2,7 @@
 
 using namespace std;
 using namespace io;
+using namespace ind;
 
 void CreateIndex(string index_fname, string data_fname, string secondary_index_fname) {
     /* Abre o arquivo de dados */
@@ -84,45 +85,4 @@ string RemoveSpaces(string str) {
         }
     }
     return str;
-}
-
-Index LoadIndex(string index_fname) {
-    ifstream primary_index_file(index_fname.c_str());
-    Index index;
-    string line;
-    while (getline(primary_index_file, line)) {
-        int registry_number, pointer;
-        sscanf(line.c_str(), "%*s %d %d\n", &registry_number, &pointer);
-        index.push_back(make_pair(line.substr(0,30), make_pair(registry_number, pointer)));
-    }
-    return index;
-}
-
-void SaveIndex(string index_fname, const Index& index) {
-    ofstream index_file(index_fname.c_str());
-    for (int i = 0; i < index.size(); ++i)
-        index_file << index[i].first << " "
-                   << setw(2) << index[i].second.first << " "
-                   << setw(2) << index[i].second.second << endl;
-}
-
-void ShowIndex(const Index& index) {
-    for (int i = 0; i < index.size(); ++i) {
-        cout << index[i].first << " "
-             << setfill(' ') << setw(2) << index[i].second.first << " "
-             << setw(2) << index[i].second.second << endl;
-    }
-}
-
-void ShowSecondaryIndex(const std::vector<std::pair<std::string, int> >& secondary_index) {
-    cout << endl;
-    for (int i = 0; i < secondary_index.size(); ++i)
-        cout << secondary_index[i].first << " " << setw(2) << secondary_index[i].second << endl;
-}
-
-void SaveSecondaryIndex(std::string fname, const std::vector<std::pair<std::string, int> >& secondary_index) {
-    ofstream secondary_index_file(fname.c_str());
-    for (int i = 0; i < secondary_index.size(); ++i)
-        secondary_index_file << secondary_index[i].first << " "
-                             << setw(2) << secondary_index[i].second << endl;
 }
