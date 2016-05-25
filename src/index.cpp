@@ -31,10 +31,16 @@ void ind::ShowIndex(const Index& index) {
     }
 }
 
-void ind::ShowSecondaryIndex(const std::vector<std::pair<std::string, int> >& secondary_index) {
-    cout << endl;
-    for (int i = 0; i < secondary_index.size(); ++i)
-        cout << secondary_index[i].first << " " << setw(2) << secondary_index[i].second << endl;
+ind::SecondaryIndex ind::LoadSecondaryIndex(std::string fname) {
+    ifstream secondary_index_file(fname.c_str());
+    SecondaryIndex secondary_index;
+    string line;
+    while (getline(secondary_index_file, line)) {
+        int pointer;
+        sscanf(line.c_str(), "%*s %d\n", &pointer);
+        secondary_index.push_back(make_pair(line.substr(0,2), pointer));
+    }
+    return secondary_index;
 }
 
 void ind::SaveSecondaryIndex(std::string fname, const std::vector<std::pair<std::string, int> >& secondary_index) {
@@ -42,4 +48,9 @@ void ind::SaveSecondaryIndex(std::string fname, const std::vector<std::pair<std:
     for (int i = 0; i < secondary_index.size(); ++i)
         secondary_index_file << secondary_index[i].first << " "
                              << setw(2) << secondary_index[i].second << endl;
+}
+
+void ind::ShowSecondaryIndex(const std::vector<std::pair<std::string, int> >& secondary_index) {
+    for (int i = 0; i < secondary_index.size(); ++i)
+        cout << secondary_index[i].first << " " << setw(2) << secondary_index[i].second << endl;
 }
