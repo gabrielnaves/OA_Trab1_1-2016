@@ -31,6 +31,19 @@ void ind::ShowIndex(const Index& index) {
     }
 }
 
+ind::IndexReg ind::MakeIndexReg(std::string primary_key, int registry_number, int secondary_index_pointer) {
+    IndexReg ir;
+    ir = make_pair(primary_key, make_pair(registry_number, secondary_index_pointer));
+    return ir;
+}
+
+void ind::AddRegToIndex(IndexReg index_reg, Index index) {
+}
+
+int ind::SearchPrimaryKeyOnIndex(Index index, std::string primary_key) {
+    return Search::BinarySearch<string, pair<int, int> >(index, primary_key);
+}
+
 ind::SecondaryIndex ind::LoadSecondaryIndex(std::string fname) {
     ifstream secondary_index_file(fname.c_str());
     SecondaryIndex secondary_index;
