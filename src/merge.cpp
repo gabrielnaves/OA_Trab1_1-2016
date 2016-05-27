@@ -20,6 +20,8 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
         return;
     }
 
+    PrintLine("Arquivo de dados resultante:");
+
     string line1, line2;
     getline(ind_file1, line1);
     getline(ind_file2, line2);
@@ -71,6 +73,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
 }
 
 void merge::WriteLine(ofstream& file_out, string line) {
+    PrintLine(line);
     file_out << line << endl;
 }
 

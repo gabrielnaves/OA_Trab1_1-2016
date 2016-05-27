@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "gui.h"
-#include "merge.h"
 
 using namespace std;
 

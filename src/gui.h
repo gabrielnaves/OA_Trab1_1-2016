@@ -6,6 +6,7 @@
 
 #include "create_index.h"
 #include "io_operations.h"
+#include "merge.h"
 
 class GUI {
   public:
@@ -14,7 +15,12 @@ class GUI {
 
   private:
     static void CreateNewIndexFile();
+
     static void AddRegistryToDataFile();
+    static void RemoveRegistryFromDataFile();
+    static void UpdateRegistryFromDataFile();
+
+    static void MergeDataFilesUsingTheirIndexFiles();
 
 };
 
