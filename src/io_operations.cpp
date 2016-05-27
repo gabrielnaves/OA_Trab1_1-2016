@@ -8,6 +8,11 @@ string io::ReadLine() {
     return line;
 }
 
+string io::ReadLine(string msg) {
+    PrintLine(msg);
+    return ReadLine();
+}
+
 void io::PrintLine(string msg) {
     cout << msg << endl;
 }

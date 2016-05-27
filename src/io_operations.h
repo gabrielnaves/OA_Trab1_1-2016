@@ -6,8 +6,9 @@
 
 namespace io {
 
-std::string ReadLine();
 void PrintLine(std::string msg);
+std::string ReadLine();
+std::string ReadLine(std::string msg);
 std::string ReadFileName(std::string file_prefix, std::string msg);
 
 }

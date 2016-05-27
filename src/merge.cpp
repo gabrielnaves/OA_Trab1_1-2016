@@ -32,7 +32,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
         if (primary_key_1 < primary_key_2) {
             int reg_number;
             sscanf(line1.c_str(), "%*s %d %*d\n", &reg_number);
-            string registry = FindRegistry(data_file1, reg_number*64);
+            string registry = msc::FindRegistry(data_file1, reg_number*64);
             WriteLine(file_out, registry);
             getline(ind_file1, line1);
         }
@@ -40,7 +40,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
         else if (primary_key_1 > primary_key_2) {
             int reg_number;
             sscanf(line2.c_str(), "%*s %d %*d\n", &reg_number);
-            string registry = FindRegistry(data_file2, reg_number*64);
+            string registry = msc::FindRegistry(data_file2, reg_number*64);
             WriteLine(file_out, registry);
             getline(ind_file2, line2);
         }
@@ -48,7 +48,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
         else {
             int reg_number;
             sscanf(line1.c_str(), "%*s %d %*d\n", &reg_number);
-            string registry = FindRegistry(data_file1, reg_number*64);
+            string registry = msc::FindRegistry(data_file1, reg_number*64);
             WriteLine(file_out, registry);
             getline(ind_file1, line1);
             getline(ind_file2, line2);
@@ -58,7 +58,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
     while (not ind_file1.eof()) {
         int reg_number;
         sscanf(line1.c_str(), "%*s %d %*d\n", &reg_number);
-        string registry = FindRegistry(data_file1, reg_number*64);
+        string registry = msc::FindRegistry(data_file1, reg_number*64);
         WriteLine(file_out, registry);
         getline(ind_file1, line1);
     }
@@ -66,7 +66,7 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
     while (not ind_file2.eof()) {
         int reg_number;
         sscanf(line2.c_str(), "%*s %d %*d\n", &reg_number);
-        string registry = FindRegistry(data_file2, reg_number*64);
+        string registry = msc::FindRegistry(data_file2, reg_number*64);
         WriteLine(file_out, registry);
         getline(ind_file2, line2);
     }
@@ -75,11 +75,4 @@ void merge::MergeFiles(string data_file_1_name, string index_file_1_name,
 void merge::WriteLine(ofstream& file_out, string line) {
     PrintLine(line);
     file_out << line << endl;
-}
-
-string merge::FindRegistry(ifstream& data_file, int byte_offset) {
-    data_file.seekg(byte_offset);
-    string registry;
-    getline(data_file, registry);
-    return registry;
 }

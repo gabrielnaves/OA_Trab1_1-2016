@@ -48,7 +48,14 @@ void GUI::AddRegistryToDataFile() {
 }
 
 void GUI::RemoveRegistryFromDataFile() {
-    PrintLine("Opcao ainda nao implementada");
+    string data_fname = ReadFileName("listas/", "Digite o nome do arquivo de dados");
+    string index_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices primario");
+    string secondary_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices secundario");
+
+    string primary_key = RemoveSpaces(ReadLine("Digite a matricula e nome completo do aluno"));
+    primary_key.resize(30, ' ');
+
+    DeleteRegistry(data_fname, index_fname, secondary_fname, primary_key);
 }
 
 void GUI::UpdateRegistryFromDataFile() {
