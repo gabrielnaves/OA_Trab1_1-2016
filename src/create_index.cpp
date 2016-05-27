@@ -17,11 +17,11 @@ void CreateIndex(string index_fname, string data_fname, string secondary_index_f
     int registry_number = 0;
     Index index;
     while (getline(data_file, data_line)) {
-        if (data_line[0] == '.')
-            continue;
-        string primary_key = RemoveSpaces(data_line.substr(0,48));
-        primary_key.resize(30, ' ');
-        index.push_back(make_pair(primary_key, make_pair(registry_number, -1)));
+        if (data_line[0] != '.') {
+            string primary_key = RemoveSpaces(data_line.substr(0,48));
+            primary_key.resize(30, ' ');
+            index.push_back(make_pair(primary_key, make_pair(registry_number, -1)));
+        }
         registry_number++;
     }
 

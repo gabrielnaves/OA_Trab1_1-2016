@@ -13,9 +13,9 @@ using namespace std;
 //     return 0;
 // }
 
-int main(int argc, char *argv[]) {
-    CreateIndex("indices/indicelista1.ind", "listas/lista1.txt", "indices/indicesecundariolista1.ind");
-}
+// int main(int argc, char *argv[]) {
+//     CreateIndex("indices/indicelista1.ind", "listas/lista1.txt", "indices/indicesecundariolista1.ind");
+// }
 
 // int main(int argc, char *argv[]) {
 //     DeleteRegistry("listas/lista1.txt", "indices/indicelista1.ind", "indices/indicesecundariolista1.ind",
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 //     cout << endl << Search::BinarySearch<int>(index, 25) << endl;
 // }
 
-// int main() {
-//     merge::MergeFiles("listas/lista1.txt", "indices/indicelista1.ind",
-//                       "listas/lista2.txt", "indices/indicelista2.ind", "listas/lista12.txt");
-// }
+int main() {
+    merge::MergeFiles("listas/lista1.txt", "indices/indicelista1.ind",
+                      "listas/lista2.txt", "indices/indicelista2.ind", "listas/lista12.txt");
+}

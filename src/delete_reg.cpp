@@ -42,6 +42,7 @@ void DeleteRegistry(string data_fname, string index_fname, string secondary_fnam
             index[i].second.second--;
     }
 
+    /* Faz a exclusão do registro no arquivo de dados, e atualiza a PED */
 
 
     // ShowIndex(index);
