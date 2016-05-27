@@ -13,14 +13,14 @@ using namespace std;
 //     return 0;
 // }
 
-// int main(int argc, char *argv[]) {
-//     CreateIndex("indices/indicelista1.ind", "listas/lista1.txt", "indices/indicesecundariolista1.ind");
-// }
-
 int main(int argc, char *argv[]) {
-    DeleteRegistry("listas/lista1.txt", "indices/indicelista1.ind", "indices/indicesecundariolista1.ind",
-                   "046946VitorBrunoJacinthodeAlme");
+    CreateIndex("indices/indicelista1.ind", "listas/lista1.txt", "indices/indicesecundariolista1.ind");
 }
+
+// int main(int argc, char *argv[]) {
+//     DeleteRegistry("listas/lista1.txt", "indices/indicelista1.ind", "indices/indicesecundariolista1.ind",
+//                    "046946VitorBrunoJacinthodeAlme");
+// }
 
 // int main(int argc, char*argv[]) {
 //     vector<int> index;

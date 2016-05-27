@@ -42,6 +42,8 @@ void DeleteRegistry(string data_fname, string index_fname, string secondary_fnam
             index[i].second.second--;
     }
 
-    ShowIndex(index);
-    ShowSecondaryIndex(secondary_index);
+
+
+    // ShowIndex(index);
+    // ShowSecondaryIndex(secondary_index);
 }

@@ -17,7 +17,7 @@ void CreateIndex(string index_fname, string data_fname, string secondary_index_f
     int registry_number = 0;
     Index index;
     while (getline(data_file, data_line)) {
-        if (data_line[0] == ' ')
+        if (data_line[0] == '.')
             continue;
         string primary_key = RemoveSpaces(data_line.substr(0,48));
         primary_key.resize(30, ' ');
@@ -45,6 +45,8 @@ void CreateSecondaryIndex(string index_fname, string data_fname, string secondar
     vector<pair<string, string> > intermediate;
     string line;
     while (getline(data_file, line)) {
+        if (line[0] == '.')
+            continue;
         string primary_key = RemoveSpaces(line.substr(0,48));
         primary_key.resize(30, ' ');
         string secondary_key = line.substr(52, 2);
