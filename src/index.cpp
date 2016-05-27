@@ -37,7 +37,21 @@ ind::IndexReg ind::MakeIndexReg(std::string primary_key, int registry_number, in
     return ir;
 }
 
-void ind::AddRegToIndex(IndexReg index_reg, Index index) {
+void ind::AddRegToIndex(Index& index, IndexReg index_reg) {
+    if (SearchPrimaryKeyOnIndex(index, index_reg.first) != -1) {
+        PrintLine("Erro! Indice ja existe. Nada sera feito.");
+        return;
+    }
+    index.push_back(index_reg);
+}
+
+void ind::DeleteRegFromIndex(Index& index, IndexReg index_reg) {
+    int registry_index = SearchPrimaryKeyOnIndex(index, index_reg.first);
+    if (registry_index == -1) {
+        PrintLine("Indice nao existe. Nada sera feito.");
+        return;
+    }
+    index.erase(index.begin() + registry_index);
 }
 
 int ind::SearchPrimaryKeyOnIndex(Index index, std::string primary_key) {

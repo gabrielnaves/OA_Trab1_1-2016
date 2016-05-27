@@ -30,8 +30,10 @@ typedef std::vector<std::pair<std::string, int> > SecondaryIndex;
 Index LoadIndex(std::string index_fname);
 void SaveIndex(std::string index_fname, const Index& index);
 void ShowIndex(const Index& index);
+
 IndexReg MakeIndexReg(std::string primary_key, int registry_number, int secondary_index_pointer);
-void AddRegToIndex(IndexReg index_reg, Index index);
+void AddRegToIndex(Index& index, IndexReg index_reg);
+void DeleteRegFromIndex(Index& index, IndexReg index_reg);
 
 /* Retorna o indice no Index onde o registro foi encontrado, -1 se nao encontrar */
 int SearchPrimaryKeyOnIndex(Index index, std::string primary_key);
