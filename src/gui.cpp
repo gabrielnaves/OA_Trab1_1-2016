@@ -35,17 +35,9 @@ void GUI::ShowMainMenu() {
 }
 
 void GUI::CreateNewIndexFile() {
-    PrintLine("Digite o nome do arquivo de dados");
-    string data_fname = ReadLine();
-    data_fname = "listas/" + data_fname;
-
-    PrintLine("Digite o nome do arquivo de indices primario");
-    string index_fname = ReadLine();
-    index_fname = "indices/" + index_fname;
-
-    PrintLine("Digite o nome do arquivo de indices secundario");
-    string secondary_fname = ReadLine();
-    secondary_fname = "indices/" + secondary_fname;
+    string data_fname = ReadFileName("listas/", "Digite o nome do arquivo de dados");
+    string index_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices primario");
+    string secondary_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices secundario");
 
     cout << endl;
     CreateIndex(index_fname, data_fname, secondary_fname);
@@ -64,25 +56,13 @@ void GUI::UpdateRegistryFromDataFile() {
 }
 
 void GUI::MergeDataFilesUsingTheirIndexFiles() {
-    PrintLine("Digite o nome do primeiro arquivo de dados");
-    string data_1_fname = ReadLine();
-    data_1_fname = "listas/" + data_1_fname;
+    string data_1_fname = ReadFileName("listas/", "Digite o nome do primeiro arquivo de dados");
+    string index_1_fname = ReadFileName("indices/", "Digite o nome do primeiro arquivo de indices primario");
 
-    PrintLine("Digite o nome do primeiro arquivo de indices primario");
-    string index_1_fname = ReadLine();
-    index_1_fname = "indices/" + index_1_fname;
+    string data_2_fname = ReadFileName("listas/", "Digite o nome do segundo arquivo de dados");
+    string index_2_fname = ReadFileName("indices/", "Digite o nome do segundo arquivo de indices primario");
 
-    PrintLine("Digite o nome do segundo arquivo de dados");
-    string data_2_fname = ReadLine();
-    data_2_fname = "listas/" + data_2_fname;
-
-    PrintLine("Digite o nome do segundo arquivo de indices primario");
-    string index_2_fname = ReadLine();
-    index_2_fname = "indices/" + index_2_fname;
-
-    PrintLine("Digite o nome do arquivo de dados resultante");
-    string file_out = ReadLine();
-    file_out = "listas/" + file_out;
+    string file_out = ReadFileName("listas/", "Digite o nome do arquivo de dados resultante");
 
     cout << endl;
     merge::MergeFiles(data_1_fname, index_1_fname, data_2_fname, index_2_fname, file_out);

@@ -11,3 +11,8 @@ string io::ReadLine() {
 void io::PrintLine(string msg) {
     cout << msg << endl;
 }
+
+string io::ReadFileName(string file_prefix, string msg) {
+    PrintLine(msg);
+    return file_prefix + ReadLine();
+}

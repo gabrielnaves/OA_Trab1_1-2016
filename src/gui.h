@@ -21,7 +21,6 @@ class GUI {
     static void UpdateRegistryFromDataFile();
 
     static void MergeDataFilesUsingTheirIndexFiles();
-
 };
 
 #endif /* GUI_H */
