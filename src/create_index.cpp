@@ -54,7 +54,7 @@ void CreateSecondaryIndex(string index_fname, string data_fname, string secondar
     Sort::Heapsort<pair<string, string> >(intermediate);
 
     /* Constroi o indice secundario a partir do intermediario, e guarda os ponteiros no indice primario */
-    vector<pair<string, int> > secondary_index;
+    SecondaryIndex secondary_index;
     // Processa o primeiro
     int last_ind = SearchPrimaryKeyOnIndex(index, intermediate[0].second);
     secondary_index.push_back(make_pair(intermediate[0].first, last_ind));
