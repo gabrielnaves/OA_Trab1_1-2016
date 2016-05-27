@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
     bool should_quit = false;
     while (!should_quit)
-        should_quit = gui::RunMainMenu();
+        should_quit = GUI::RunMainMenu();
     return 0;
 }
 

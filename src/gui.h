@@ -7,12 +7,15 @@
 #include "create_index.h"
 #include "io_operations.h"
 
-namespace gui {
+class GUI {
+  public:
+    static bool RunMainMenu();
+    static void ShowMainMenu();
 
-bool RunMainMenu();
-void ShowMainMenu();
-void CreateNewIndexFile();
+  private:
+    static void CreateNewIndexFile();
+    static void AddRegistryToDataFile();
 
-}
+};
 
 #endif /* GUI_H */
