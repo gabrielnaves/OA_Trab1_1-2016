@@ -8,6 +8,7 @@
 #include <iomanip>
 
 #include "io_operations.h"
+#include "misc_operations.h"
 #include "heapsort.h"
 #include "binary_search.h"
 #include "index.h"

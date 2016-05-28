@@ -18,7 +18,7 @@ void CreateIndex(string index_fname, string data_fname, string secondary_index_f
     Index index;
     while (getline(data_file, data_line)) {
         if (data_line[0] != '.') {
-            string primary_key = RemoveSpaces(data_line.substr(0,48));
+            string primary_key = msc::RemoveSpaces(data_line.substr(0,48));
             primary_key.resize(30, ' ');
             index.push_back(make_pair(primary_key, make_pair(registry_number, -1)));
         }
@@ -47,7 +47,7 @@ void CreateSecondaryIndex(string index_fname, string data_fname, string secondar
     while (getline(data_file, line)) {
         if (line[0] == '.')
             continue;
-        string primary_key = RemoveSpaces(line.substr(0,48));
+        string primary_key = msc::RemoveSpaces(line.substr(0,48));
         primary_key.resize(30, ' ');
         string secondary_key = line.substr(52, 2);
         intermediate.push_back(make_pair(secondary_key, primary_key));
@@ -79,14 +79,4 @@ void CreateSecondaryIndex(string index_fname, string data_fname, string secondar
     PrintLine("Arquivo de indice secundario criado: ");
     ShowSecondaryIndex(secondary_index);
     SaveSecondaryIndex(secondary_index_fname, secondary_index);
-}
-
-string RemoveSpaces(string str) {
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == ' ') {
-            str.erase(str.begin() + i);
-            i--;
-        }
-    }
-    return str;
 }

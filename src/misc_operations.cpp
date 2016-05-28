@@ -17,3 +17,13 @@ int msc::GetTopOfPed(std::fstream& data_file) {
     sscanf(str.c_str(), ". %d", &top_of_ped);
     return top_of_ped;
 }
+
+string msc::RemoveSpaces(string str) {
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == ' ') {
+            str.erase(str.begin() + i);
+            i--;
+        }
+    }
+    return str;
+}

@@ -6,6 +6,7 @@
 
 #include "create_index.h"
 #include "delete_reg.h"
+#include "create_reg.h"
 #include "io_operations.h"
 #include "merge.h"
 

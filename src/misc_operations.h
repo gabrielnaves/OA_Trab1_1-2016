@@ -9,6 +9,7 @@ namespace msc {
 
 std::string FindRegistry(std::ifstream& data_file, int byte_offset);
 int GetTopOfPed(std::fstream& data_file);
+std::string RemoveSpaces(std::string str);
 
 }
 

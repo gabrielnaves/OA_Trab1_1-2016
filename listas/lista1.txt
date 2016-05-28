@@ -15,6 +15,6 @@
 046713 Thiago Fernandes Crepaldi                34  EC       A
 046802 Tiago Rezende Campos Falcao              34  EC       A
 046944 Vitor Baccetti Garcia                    34  EC       A
-046946 Vitor Bruno Jacintho de Almeida          34  EC       A
+123456 Gabriel Naves da Silva                   32  EC       A
 046956 Vitor Gouvea Franchi                     34  EC       A
 046961 Vitor Paulo Villarino Pinto              32  EC       A
