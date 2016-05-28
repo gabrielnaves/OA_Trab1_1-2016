@@ -44,7 +44,17 @@ void GUI::CreateNewIndexFile() {
 }
 
 void GUI::AddRegistryToDataFile() {
-    PrintLine("Opcao ainda nao implementada");
+    string data_fname = ReadFileName("listas/", "Digite o nome do arquivo de dados");
+    string index_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices primario");
+    string secondary_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices secundario");
+
+    string matric = ReadLine("Digite a matricula");
+    string nome = ReadLine("Digite o nome completo");
+    string op = ReadLine("Digite a opcao");
+    string curso = ReadLine("Digite o curso");
+    string turma = ReadLine("Digite a turma");
+
+    CreateRegistry(data_fname, index_fname, secondary_fname, matric, nome, op, curso, turma);
 }
 
 void GUI::RemoveRegistryFromDataFile() {
@@ -59,7 +69,30 @@ void GUI::RemoveRegistryFromDataFile() {
 }
 
 void GUI::UpdateRegistryFromDataFile() {
-    PrintLine("Opcao ainda nao implementada");
+    string data_fname = ReadFileName("listas/", "Digite o nome do arquivo de dados");
+    string index_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices primario");
+    string secondary_fname = ReadFileName("indices/", "Digite o nome do arquivo de indices secundario");
+
+    string primary_key = msc::RemoveSpaces(ReadLine(string("Digite a matricula e nome completo do") +
+                                                    string(" aluno que deseja alterar")));
+    primary_key.resize(30, ' ');
+
+    {
+        ind::Index index = ind::LoadIndex(index_fname);
+        if (ind::SearchPrimaryKeyOnIndex(index, primary_key) == -1) {
+            PrintLine("Erro! Aluno nao existe!");
+            return;
+        }
+    }
+
+    string matric = ReadLine("Digite a nova matricula");
+    string nome = ReadLine("Digite o novo nome completo");
+    string op = ReadLine("Digite a opcao");
+    string curso = ReadLine("Digite o curso");
+    string turma = ReadLine("Digite a turma");
+
+    DeleteRegistry(data_fname, index_fname, secondary_fname, primary_key);
+    CreateRegistry(data_fname, index_fname, secondary_fname, matric, nome, op, curso, turma);
 }
 
 void GUI::MergeDataFilesUsingTheirIndexFiles() {
