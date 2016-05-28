@@ -27,6 +27,7 @@ void ShowIndex(const Index& index);
 IndexReg MakeIndexReg(std::string primary_key, int registry_number, int secondary_index_pointer);
 void AddRegToIndex(Index& index, IndexReg index_reg);
 void DeleteRegFromIndex(Index& index, IndexReg index_reg);
+void DeleteRegFromIndex(Index& index, std::string primary_key);
 
 /* Retorna o indice no Index onde o registro foi encontrado, -1 se nao encontrar */
 int SearchPrimaryKeyOnIndex(Index index, std::string primary_key);

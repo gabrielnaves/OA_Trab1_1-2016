@@ -46,7 +46,11 @@ void ind::AddRegToIndex(Index& index, IndexReg index_reg) {
 }
 
 void ind::DeleteRegFromIndex(Index& index, IndexReg index_reg) {
-    int registry_index = SearchPrimaryKeyOnIndex(index, index_reg.first);
+    DeleteRegFromIndex(index, index_reg.first);
+}
+
+void ind::DeleteRegFromIndex(Index& index, std::string primary_key) {
+    int registry_index = SearchPrimaryKeyOnIndex(index, primary_key);
     if (registry_index == -1) {
         PrintLine("Indice nao existe. Nada sera feito.");
         return;

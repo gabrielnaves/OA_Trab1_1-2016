@@ -6,7 +6,7 @@ using namespace io;
 
 void DeleteRegistry(string data_fname, string index_fname, string secondary_fname, string primary_key) {
     /* Abre o arquivo de dados */
-    ifstream data_file(data_fname.c_str());
+    fstream data_file(data_fname.c_str());
     if (!data_file) {
         PrintLine("Erro! Arquivo de dados nao existe!");
         return;
@@ -23,11 +23,6 @@ void DeleteRegistry(string data_fname, string index_fname, string secondary_fnam
         return;
     }
 
-     // TALVEZ EU USE ISSO
-    // /* Recupera o registro do arquivo de dados (para atualizacao do indice secundario) */
-    // int byte_offset = index[registry_pos_on_index].second.first*64;
-    // string registry = msc::FindRegistry(data_file, byte_offset);
-
     /* Atualiza o indice secundario */
     for (int i = 0; i < secondary_index.size(); ++i) {
         if (secondary_index[i].second == registry_pos_on_index)
@@ -43,8 +38,19 @@ void DeleteRegistry(string data_fname, string index_fname, string secondary_fnam
     }
 
     /* Faz a exclusão do registro no arquivo de dados, e atualiza a PED */
+    int top_of_ped = msc::GetTopOfPed(data_file);
+    // Deleta o registro
+    int byte_offset = index[registry_pos_on_index].second.first*64;
+    data_file.seekg(byte_offset);
+    data_file << ". " << setfill(' ') << setw(2) << top_of_ped << " ";
+    // Atualiza o topo da pilha
+    data_file.seekg(2);
+    data_file << setfill(' ') << setw(2) << index[registry_pos_on_index].second.first;
 
-
-    // ShowIndex(index);
-    // ShowSecondaryIndex(secondary_index);
+    /* Finalmente, exclui o registro do indice primario, mostra na tela e salva nos arquivos */
+    DeleteRegFromIndex(index, index[registry_pos_on_index]);
+    ShowIndex(index);
+    ShowSecondaryIndex(secondary_index);
+    SaveIndex(index_fname, index);
+    SaveSecondaryIndex(secondary_fname, secondary_index);
 }

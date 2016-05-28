@@ -6,12 +6,12 @@
 
 using namespace std;
 
-// int main(int argc, char *argv[]) {
-//     bool should_quit = false;
-//     while (!should_quit)
-//         should_quit = GUI::RunMainMenu();
-//     return 0;
-// }
+int main(int argc, char *argv[]) {
+    bool should_quit = false;
+    while (!should_quit)
+        should_quit = GUI::RunMainMenu();
+    return 0;
+}
 
 // int main(int argc, char *argv[]) {
 //     CreateIndex("indices/indicelista1.ind", "listas/lista1.txt", "indices/indicesecundariolista1.ind");
@@ -39,7 +39,7 @@ using namespace std;
 //     cout << endl << Search::BinarySearch<int>(index, 25) << endl;
 // }
 
-int main() {
-    merge::MergeFiles("listas/lista1.txt", "indices/indicelista1.ind",
-                      "listas/lista2.txt", "indices/indicelista2.ind", "listas/lista12.txt");
-}
+// int main() {
+//     merge::MergeFiles("listas/lista1.txt", "indices/indicelista1.ind",
+//                       "listas/lista2.txt", "indices/indicelista2.ind", "listas/lista12.txt");
+// }
