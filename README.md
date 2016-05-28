@@ -2,7 +2,6 @@ Repositório para o trabalho 1 da disciplina de Organização de Arquivos da Uni
 
 Integrantes:
  - Gabriel Naves da Silva
- - Gabriel Kyth
 
 # Instruções de Compilação
 

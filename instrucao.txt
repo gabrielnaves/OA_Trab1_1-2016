@@ -1,6 +1,5 @@
-Integrantes:
+Integrante:
     - Gabriel Naves da Silva  - 12/0011867
-    - Gabriel Kyth (desistiu)
 
 # Instrucoes de compilacao (Linux):
 
